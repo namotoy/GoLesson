@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"strconv"
 )
 
 const Pi = 3.14
@@ -45,11 +45,24 @@ func main() {
 	fmt.Println(x)
 	*/
 	//fmt.Println(string("Hello world"[0]))
-	var s string = "Hello world"
-	s = strings.Replace(s, "H", "X", 1)
-	fmt.Println(s)
-	fmt.Println(strings.Contains(s, "world"))
-	fmt.Println("Test\n" +
-		"Test")
+	//var s string = "Hello world"
+	//s = strings.Replace(s, "H", "X", 1)
+	//fmt.Println(s)
+	//fmt.Println(strings.Contains(s, "world"))
+	//fmt.Println("Test\n" +
+	//	"Test")
+	//t, f := true, false
+	//fmt.Printf("%T %v %t\n ", t, t, 1)
+	//fmt.Printf("%T %v %t\n", f, f, 2)
+	var x int = 1
+	xx := float64(x)
+	fmt.Printf("%T %v %f\n", xx, xx, xx)
 
+	var y float64 = 1.2
+	yy := int(y)
+	fmt.Printf("%T %v %d\n", yy, yy, yy)
+
+	var s string = "15"
+	i, _ := strconv.Atoi(s)
+	fmt.Printf("%T %v", i, i)
 }
