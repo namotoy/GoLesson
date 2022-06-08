@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 const Pi = 3.14
 const (
@@ -17,17 +15,39 @@ var (
 	t, f bool    = true, false
 )
 
-func foo() {
-	xi := 1
-	var xf32 float32 = 1.2
-	xs := "test"
-	xt, xf := true, false
-	fmt.Println(xi, xf32, xs, xt, xf)
-	fmt.Printf("%T\n", xf32)
-	fmt.Printf("%T\n", xi)
-
+func add(x, y int) (int, int) {
+	return x + y, x - y
 }
+
+func cal(price, item int) (result int) {
+	result = price * item
+	return result
+}
+
+//func foo() {
+//	xi := 1
+//	var xf32 float32 = 1.2
+//	xs := "test"
+//	xt, xf := true, false
+//	fmt.Println(xi, xf32, xs, xt, xf)
+//	fmt.Printf("%T\n", xf32)
+//	fmt.Printf("%T\n", xi)
+//}
 func main() {
+	r1, r2 := add(10, 30)
+	fmt.Println(r1, r2)
+
+	r3 := cal(100, 3)
+	fmt.Println(r3)
+
+	f := func(x int) {
+		fmt.Println("inner func", x)
+	}
+	f(1)
+
+	func(x int) {
+		fmt.Println("inner func", x)
+	}(1)
 	/*var (
 		u8  uint8     = 255
 		i8  int8      = 127
@@ -104,23 +124,27 @@ func main() {
 	//}
 	//fmt.Println(c)
 
-	m := map[string]int{"apple": 100, "banana": 200}
-	fmt.Println(m)
-	fmt.Println(m["apple"])
-	m["banana"] = 300
-	fmt.Println(m)
-	m["new"] = 500
-	fmt.Println(m)
+	//m := map[string]int{"apple": 100, "banana": 200}
+	//fmt.Println(m)
+	//fmt.Println(m["apple"])
+	//m["banana"] = 300
+	//fmt.Println(m)
+	//m["new"] = 500
+	//fmt.Println(m)
+	//
+	//fmt.Println(m["nothing"])
+	//
+	//v, ok := m["apple"]
+	//fmt.Println(v, ok)
+	//
+	//v2, ok2 := m["nothing"]
+	//fmt.Println(v2, ok2)
+	//
+	//m2 := make(map[string]int)
+	//m2["pc"] = 10000
+	//fmt.Println(m2)
 
-	fmt.Println(m["nothing"])
-
-	v, ok := m["apple"]
-	fmt.Println(v, ok)
-
-	v2, ok2 := m["nothing"]
-	fmt.Println(v2, ok2)
-
-	m2 := make(map[string]int)
-	m2["pc"] = 10000
-	fmt.Println(m2)
+	//b := []byte{72, 73}
+	//fmt.Println(b)
+	//fmt.Println(string(b))
 }
