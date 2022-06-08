@@ -94,14 +94,33 @@ func main() {
 	//n = append(n, 0, 0)
 	//fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
 	//n = append(n, 1, 2, 3, 4, 5, 6)
-	var c []int
-	fmt.Printf("len=%d cap=%d value=%v\n", len(c), cap(c), c)
-	c = make([]int, 5)
-	c = make([]int, 0, 5)
-	for i := 0; i < 5; i++ {
-		c = append(c, i)
-		fmt.Println(c)
-	}
-	fmt.Println(c)
+	//var c []int
+	//fmt.Printf("len=%d cap=%d value=%v\n", len(c), cap(c), c)
+	//c = make([]int, 5)
+	//c = make([]int, 0, 5)
+	//for i := 0; i < 5; i++ {
+	//	c = append(c, i)
+	//	fmt.Println(c)
+	//}
+	//fmt.Println(c)
 
+	m := map[string]int{"apple": 100, "banana": 200}
+	fmt.Println(m)
+	fmt.Println(m["apple"])
+	m["banana"] = 300
+	fmt.Println(m)
+	m["new"] = 500
+	fmt.Println(m)
+
+	fmt.Println(m["nothing"])
+
+	v, ok := m["apple"]
+	fmt.Println(v, ok)
+
+	v2, ok2 := m["nothing"]
+	fmt.Println(v2, ok2)
+
+	m2 := make(map[string]int)
+	m2["pc"] = 10000
+	fmt.Println(m2)
 }
