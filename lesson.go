@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 const Pi = 3.14
 const (
@@ -33,21 +35,46 @@ func cal(price, item int) (result int) {
 //	fmt.Printf("%T\n", xf32)
 //	fmt.Printf("%T\n", xi)
 //}
-func main() {
-	r1, r2 := add(10, 30)
-	fmt.Println(r1, r2)
 
-	r3 := cal(100, 3)
-	fmt.Println(r3)
-
-	f := func(x int) {
-		fmt.Println("inner func", x)
+func incrementGenerator() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
 	}
-	f(1)
+}
+func circleArea(pi float64) func(radius float64) float64 {
+	return func(radius float64) float64 {
+		return pi * radius * radius
+	}
+}
+func main() {
+	counter := incrementGenerator()
+	fmt.Println(counter())
+	fmt.Println(counter())
+	fmt.Println(counter())
+	fmt.Println(counter())
 
-	func(x int) {
-		fmt.Println("inner func", x)
-	}(1)
+	c1 := circleArea(3.14)
+	fmt.Println(c1(2))
+
+	c2 := circleArea(3)
+	fmt.Println(c2(2))
+
+	//r1, r2 := add(10, 30)
+	//fmt.Println(r1, r2)
+	//
+	//r3 := cal(100, 3)
+	//fmt.Println(r3)
+	//
+	//f := func(x int) {
+	//	fmt.Println("inner func", x)
+	//}
+	//f(1)
+	//
+	//func(x int) {
+	//	fmt.Println("inner func", x)
+	//}(1)
 	/*var (
 		u8  uint8     = 255
 		i8  int8      = 127
