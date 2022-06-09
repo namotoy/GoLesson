@@ -36,30 +36,65 @@ func cal(price, item int) (result int) {
 //	fmt.Printf("%T\n", xi)
 //}
 
-func incrementGenerator() func() int {
-	x := 0
-	return func() int {
-		x++
-		return x
+//func incrementGenerator() func() int {
+//	x := 0
+//	return func() int {
+//		x++
+//		return x
+//	}
+//}
+//func circleArea(pi float64) func(radius float64) float64 {
+//	return func(radius float64) float64 {
+//		return pi * radius * radius
+//	}
+//}
+
+func by2(num int) string {
+	if num%2 == 0 {
+		return "ok"
+	} else {
+		return "no"
 	}
 }
-func circleArea(pi float64) func(radius float64) float64 {
-	return func(radius float64) float64 {
-		return pi * radius * radius
-	}
-}
+
 func main() {
-	counter := incrementGenerator()
-	fmt.Println(counter())
-	fmt.Println(counter())
-	fmt.Println(counter())
-	fmt.Println(counter())
+	result := by2(10)
 
-	c1 := circleArea(3.14)
-	fmt.Println(c1(2))
+	if result == "ok" {
+		fmt.Println("great")
+	}
+	if result2 := by2(10); result2 == "ok" {
+		fmt.Println("great2")
+	}
+	/*
+		num := 9
+		if num%2 == 0 {
+			fmt.Println("by 2")
+		} else if num%3 == 0 {
+			fmt.Println("by 3")
+		} else {
+			fmt.Println("else")
+		}
+	*/
 
-	c2 := circleArea(3)
-	fmt.Println(c2(2))
+	x, y := 11, 20
+	if x == 10 && y == 10 {
+		fmt.Println("&&")
+	}
+	if x == 10 || y == 10 {
+		fmt.Println("||")
+	}
+	//counter := incrementGenerator()
+	//fmt.Println(counter())
+	//fmt.Println(counter())
+	//fmt.Println(counter())
+	//fmt.Println(counter())
+	//
+	//c1 := circleArea(3.14)
+	//fmt.Println(c1(2))
+	//
+	//c2 := circleArea(3)
+	//fmt.Println(c2(2))
 
 	//r1, r2 := add(10, 30)
 	//fmt.Println(r1, r2)
