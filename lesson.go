@@ -58,14 +58,33 @@ func by2(num int) string {
 }
 
 func main() {
-	result := by2(10)
+	for i := 0; i < 10; i++ {
+		if i == 3 {
+			fmt.Println("continue")
+			continue
+		}
 
-	if result == "ok" {
-		fmt.Println("great")
+		if i > 5 {
+			fmt.Println("break")
+			break
+		}
+		fmt.Println(i)
 	}
-	if result2 := by2(10); result2 == "ok" {
-		fmt.Println("great2")
+	sum := 1
+	for sum < 10 {
+		sum += sum
+		fmt.Println(sum)
 	}
+	fmt.Println(sum)
+
+	//result := by2(10)
+	//
+	//if result == "ok" {
+	//	fmt.Println("great")
+	//}
+	//if result2 := by2(10); result2 == "ok" {
+	//	fmt.Println("great2")
+	//}
 	/*
 		num := 9
 		if num%2 == 0 {
