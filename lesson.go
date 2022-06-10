@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 const Pi = 3.14
@@ -57,28 +58,48 @@ func by2(num int) string {
 	}
 }
 
+func getOsName() string {
+	return "macmac"
+}
 func main() {
-	l := []string{"python", "go", "java"}
-	for i := 0; i < len(l); i++ {
-		fmt.Println(i, l[i])
-	}
-	for i, v := range l {
-		fmt.Println(i, v)
-	}
-	for _, v := range l {
-		fmt.Println(v)
+	switch os := getOsName(); os {
+	case "mac":
+		fmt.Println("Mac!!")
+	case "windows":
+		fmt.Println("Windows!!")
+	default:
+		fmt.Println("Default!!", os)
 	}
 
-	m := map[string]int{"apple": 100, "banana": 200}
-	for k, v := range m {
-		fmt.Println(k, v)
+	t := time.Now()
+	fmt.Println(t.Hour())
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Morning")
+	case t.Hour() < 17:
+		fmt.Println("Afternoon")
 	}
-	for k := range m {
-		fmt.Println(k)
-	}
-	for _, v := range m {
-		fmt.Println(v)
-	}
+	//l := []string{"python", "go", "java"}
+	//for i := 0; i < len(l); i++ {
+	//	fmt.Println(i, l[i])
+	//}
+	//for i, v := range l {
+	//	fmt.Println(i, v)
+	//}
+	//for _, v := range l {
+	//	fmt.Println(v)
+	//}
+	//
+	//m := map[string]int{"apple": 100, "banana": 200}
+	//for k, v := range m {
+	//	fmt.Println(k, v)
+	//}
+	//for k := range m {
+	//	fmt.Println(k)
+	//}
+	//for _, v := range m {
+	//	fmt.Println(v)
+	//}
 	//for i := 0; i < 10; i++ {
 	//	if i == 3 {
 	//		fmt.Println("continue")
