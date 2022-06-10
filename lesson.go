@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 const Pi = 3.14
@@ -61,24 +60,43 @@ func by2(num int) string {
 func getOsName() string {
 	return "macmac"
 }
-func main() {
-	switch os := getOsName(); os {
-	case "mac":
-		fmt.Println("Mac!!")
-	case "windows":
-		fmt.Println("Windows!!")
-	default:
-		fmt.Println("Default!!", os)
-	}
 
-	t := time.Now()
-	fmt.Println(t.Hour())
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("Morning")
-	case t.Hour() < 17:
-		fmt.Println("Afternoon")
-	}
+func boo() {
+	defer fmt.Println("world boo")
+	fmt.Println("goodbye boo")
+}
+func main() {
+
+	/*
+		fmt.Println("run")
+		defer fmt.Println(1)
+		defer fmt.Println(2)
+		defer fmt.Println(3)
+		fmt.Println("success")
+	*/
+	/*
+		/*boo()
+		defer fmt.Println("world")
+		fmt.Println("hello")
+	*/
+
+	//switch os := getOsName(); os {
+	//case "mac":
+	//	fmt.Println("Mac!!")
+	//case "windows":
+	//	fmt.Println("Windows!!")
+	//default:
+	//	fmt.Println("Default!!", os)
+	//}
+	//
+	//t := time.Now()
+	//fmt.Println(t.Hour())
+	//switch {
+	//case t.Hour() < 12:
+	//	fmt.Println("Morning")
+	//case t.Hour() < 17:
+	//	fmt.Println("Afternoon")
+	//}
 	//l := []string{"python", "go", "java"}
 	//for i := 0; i < len(l); i++ {
 	//	fmt.Println(i, l[i])
