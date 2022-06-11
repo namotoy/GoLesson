@@ -2,32 +2,31 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"os"
 )
 
-const Pi = 3.14
-const (
-	Username = "test_user"
-	Password = "test_pass"
-)
-
-var (
-	i    int     = 1
-	f64  float64 = 1.2
-	s    string  = "test"
-	t, f bool    = true, false
-)
-
-func add(x, y int) (int, int) {
-	return x + y, x - y
-}
-
-func cal(price, item int) (result int) {
-	result = price * item
-	return result
-}
+//const Pi = 3.14
+//const (
+//	Username = "test_user"
+//	Password = "test_pass"
+//)
+//
+//var (
+//	i    int     = 1
+//	f64  float64 = 1.2
+//	s    string  = "test"
+//	t, f bool    = true, false
+//)
+//
+//func add(x, y int) (int, int) {
+//	return x + y, x - y
+//}
+//
+//func cal(price, item int) (result int) {
+//	result = price * item
+//	return result
+//}
 
 //func foo() {
 //	xi := 1
@@ -52,40 +51,53 @@ func cal(price, item int) (result int) {
 //	}
 //}
 
-func by2(num int) string {
-	if num%2 == 0 {
-		return "ok"
-	} else {
-		return "no"
-	}
-}
-
-func getOsName() string {
-	return "macmac"
-}
-
-func boo() {
-	defer fmt.Println("world boo")
-	fmt.Println("goodbye boo")
-}
-
-func LoggingSettings(logFile string) {
-	logfile, _ := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	multiLogFile := io.MultiWriter(os.Stdout, logfile)
-	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
-	log.SetOutput(multiLogFile)
-}
+//func by2(num int) string {
+//	if num%2 == 0 {
+//		return "ok"
+//	} else {
+//		return "no"
+//	}
+//}
+//
+//func getOsName() string {
+//	return "macmac"
+//}
+//
+//func boo() {
+//	defer fmt.Println("world boo")
+//	fmt.Println("goodbye boo")
+//}
+//
+//func LoggingSettings(logFile string) {
+//	logfile, _ := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+//	multiLogFile := io.MultiWriter(os.Stdout, logfile)
+//	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
+//	log.SetOutput(multiLogFile)
+//}
 func main() {
-	LoggingSettings("test.log")
-	_, err := os.Open("affaafafa")
+	file, err := os.Open("./lesson.go")
 	if err != nil {
-		log.Fatalln("Exit", err)
+		log.Fatalln("Error!")
 	}
-	log.Println("logging")
-	log.Printf("%T %v", "test", "test")
-	log.Fatalf("%T %v", "test", "test")
-	log.Fatalln("error!!")
-	fmt.Println("ok!")
+	defer file.Close()
+	data := make([]byte, 100)
+	count, err := file.Read(data)
+	if err != nil {
+		log.Fatalln("Error")
+	}
+	fmt.Println(count, string(data))
+
+	//
+	//LoggingSettings("test.log")
+	//_, err := os.Open("affaafafa")
+	//if err != nil {
+	//	log.Fatalln("Exit", err)
+	//}
+	//log.Println("logging")
+	//log.Printf("%T %v", "test", "test")
+	//log.Fatalf("%T %v", "test", "test")
+	//log.Fatalln("error!!")
+	//fmt.Println("ok!")
 	/*
 		fmt.Println("run")
 		defer fmt.Println(1)
