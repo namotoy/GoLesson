@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 )
 
 //const Pi = 3.14
@@ -74,18 +72,33 @@ import (
 //	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
 //	log.SetOutput(multiLogFile)
 //}
+
+func thirdPartyConnectDB() {
+	panic("Unable to connect database!")
+}
+
+func save() {
+	defer func() {
+		s := recover()
+		fmt.Println(s)
+	}()
+	thirdPartyConnectDB()
+}
 func main() {
-	file, err := os.Open("./lesson.go")
-	if err != nil {
-		log.Fatalln("Error!")
-	}
-	defer file.Close()
-	data := make([]byte, 100)
-	count, err := file.Read(data)
-	if err != nil {
-		log.Fatalln("Error")
-	}
-	fmt.Println(count, string(data))
+	save()
+	fmt.Println("OK!")
+
+	//file, err := os.Open("./lesson.go")
+	//if err != nil {
+	//	log.Fatalln("Error!")
+	//}
+	//defer file.Close()
+	//data := make([]byte, 100)
+	//count, err := file.Read(data)
+	//if err != nil {
+	//	log.Fatalln("Error")
+	//}
+	//fmt.Println(count, string(data))
 
 	//
 	//LoggingSettings("test.log")
