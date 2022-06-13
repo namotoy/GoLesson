@@ -73,20 +73,33 @@ import (
 //	log.SetOutput(multiLogFile)
 //}
 
-func thirdPartyConnectDB() {
-	panic("Unable to connect database!")
-}
+//func thirdPartyConnectDB() {
+//	panic("Unable to connect database!")
+//}
+//
+//func save() {
+//	defer func() {
+//		s := recover()
+//		fmt.Println(s)
+//	}()
+//	thirdPartyConnectDB()
+//}
 
-func save() {
-	defer func() {
-		s := recover()
-		fmt.Println(s)
-	}()
-	thirdPartyConnectDB()
+func one(x *int) {
+	*x = 1
 }
 func main() {
-	save()
-	fmt.Println("OK!")
+	var n int = 100
+	one(&n)
+	fmt.Println(n)
+	fmt.Println(&*&n)
+	//fmt.Println(n)
+	//fmt.Println(&n)
+	//var p *int = &n
+	//fmt.Println(p)
+	//fmt.Println(*p)
+	//save()
+	//fmt.Println("OK!")
 
 	//file, err := os.Open("./lesson.go")
 	//if err != nil {
